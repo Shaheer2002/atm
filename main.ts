@@ -50,19 +50,26 @@ if (pinAnswer.pin === myPin) {
         name: "fast",
         message: "Select amount",
         type: "list",
-        choices: ["$100", "$500", "$1000"],
+        choices: ["100", "500", "1000"],
       },
     ]);
-    if (fastAns.fast === "$100") {
-      myBalance -= 100;
-      console.log(`Your remaining balance is: $${myBalance}`);
-    } else if (fastAns.fast === "$500") {
-      myBalance -= 500;
-      console.log(`Your remaining balance is: $${myBalance}`);
-    } else {
-      myBalance -= 1000;
+    if(fastAns.fast <= myBalance) {
+      myBalance -= fastAns.fast;
       console.log(`Your remaining balance is: $${myBalance}`);
     }
+    else {
+      console.log("You donot have sufficient funds to widthraw the amount!")
+    }
+    // if (fastAns.fast === "$100") {
+    //   myBalance -= 100;
+    //   console.log(`Your remaining balance is: $${myBalance}`);
+    // } else if (fastAns.fast === "$500") {
+    //   myBalance -= 500;
+    //   console.log(`Your remaining balance is: $${myBalance}`);
+    // } else {
+    //   myBalance -= 1000;
+    //   console.log(`Your remaining balance is: $${myBalance}`);
+    // }
   }
 } else {
   console.log("Incorrect pin number");
